@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "incremental": true,
+        "jsx": "react",
+        "lib": ["es6", "dom"],
+        "module": "esNext",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "outDir": "./dist/",
+        "strictNullChecks": false,
+        "sourceMap": true,
+        "target": "es2017",
+        "tsBuildInfoFile": "./buildcache/front-end",
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "baseUrl": "./",
+        "paths": {
+            "Root/*": ["app/*"],
+        }
+    },
+    "include": ["./app/**/*", "./app/**/**/*"],
+    "exclude": ["app/static/*", "app/static/**/*", "app/inactive/**/*"]
+}

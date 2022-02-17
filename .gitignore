@@ -1,0 +1,4 @@
+node_modules/*
+app/static/compiled/*.js
+app/static/css/main.css
+package-lock.json
