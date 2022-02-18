@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "build": "npm run css_prod; webpack build -c webpack.prod.js --progress --color",
+        "build": "npm run css:prod; webpack build -c webpack.prod.js --progress --color",
         "serve": "webpack serve -c webpack.dev.js  --progress --color",
         "host": "webpack serve -c webpack.prod.js --mode production",
         "clean": "rm app/static/compiled/* ",
