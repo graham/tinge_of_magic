@@ -60,6 +60,12 @@ export interface ModalContextInterface {
     // Resolve all modal promises, clear the stack, push on a new
     // modal and return a promise attached to that modal.
     clearAndPushModal: (d: any, completionValue?) => Promise<any>,
+
+    // This is a bit of an anti-pattern, as it is probably better
+    // for modals to not care where they are in the stack. That
+    // said, it might be nice for some UI features, (showing cancel
+    // instead of 'back')
+    size(): number,
 }
 
 /* This class is given default implementations that will exist until
@@ -77,6 +83,7 @@ export const ModalContext = React.createContext<ModalContextInterface>({
     clearAndPushModal: (d: any, completionValue?: any): Promise<any> => {
         return new Promise((res, rej) => res(undefined));
     },
+    size(): () => 0,
 });
 
 
@@ -99,7 +106,7 @@ export type ModalStackItem = [HTMLElement, Function];
    component and to have that component manage it's own redraws without
    resulting in other components being redraw needlessly.
 */ 
-class ModalStackView extends React.Component<any, any>  implements ModalContextInterface  {
+class ModalStackView extends React.Component<any, any> implements ModalContextInterface  {
     state = {
         modalStack: [],
     };
@@ -160,6 +167,10 @@ class ModalStackView extends React.Component<any, any>  implements ModalContextI
                 return {...ps, modalStack: ps.modalStack.concat([item])};
             });
         });
+    }
+
+    size(): number {
+        return this.state.modalStack.length;
     }
     
     render() {
