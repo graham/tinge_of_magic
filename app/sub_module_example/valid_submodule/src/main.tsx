@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 
 const HelloWorld = (
     <div className='flex flex-col justify-center items-center h-full w-full'>
-        Hello World!
+        Inside a sub module. { new Date().toString() }
     </div>
 );
 

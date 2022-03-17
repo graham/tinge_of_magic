@@ -4,8 +4,8 @@ import * as ReactDOM from "react-dom";
 import {App} from "./app";
 import {ModalContextInterface, ModalContext} from "./ctx";
 
-let EasyModal = (props, context) => {
-    let modal: ModalContextInterface = React.useContext(ModalContext);
+const EasyModal = (props, context) => {
+    const modal: ModalContextInterface = React.useContext(ModalContext);
 
     console.log("Draw Modal");
 
@@ -19,11 +19,11 @@ let EasyModal = (props, context) => {
     </div>
 }
 
-let HelloWorld = (props, context) => {
-    let modal: ModalContextInterface = React.useContext(ModalContext);
+const HelloWorld = (props, context) => {
+    const modal: ModalContextInterface = React.useContext(ModalContext);
 
-    let [choice, setChoice] = React.useState('Not set yet');
-    let [count, setCount] = React.useState(0);
+    const [choice, setChoice] = React.useState('Not set yet');
+    const [count, setCount] = React.useState(0);
 
     console.log("Draw Hello World");
 

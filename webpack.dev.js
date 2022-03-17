@@ -3,7 +3,7 @@ const WEBSOCKET_ADDRESS = "http://127.0.0.1:15000";
 
 const path = require("path");
 
-let common = require("./webpack.common.js");
+let common = require("./lib/webpack.common.js");
 
 module.exports = (env, args) => {
     let d = common(env, args);

@@ -1,4 +1,4 @@
-let common = require("./webpack.common.js");
+let common = require("./lib/webpack.common.js");
 
 module.exports = (env, args) => {
     let d = common(env, args);

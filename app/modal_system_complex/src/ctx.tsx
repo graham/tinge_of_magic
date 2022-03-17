@@ -83,7 +83,7 @@ export const ModalContext = React.createContext<ModalContextInterface>({
     clearAndPushModal: (d: any, completionValue?: any): Promise<any> => {
         return new Promise((res, rej) => res(undefined));
     },
-    size(): () => 0,
+    size: ():number => { return 0 },
 });
 
 
@@ -113,7 +113,7 @@ class ModalStackView extends React.Component<any, any> implements ModalContextIn
 
     pushModal(d): Promise<any> {
         return new Promise( (res, rej) => {
-            let item:ModalStackItem = [d, res];
+            const item:ModalStackItem = [d, res];
             this.setState((ps, ctx) => {
                 return {...ps, modalStack: ps.modalStack.concat([item])};
             });
@@ -124,7 +124,7 @@ class ModalStackView extends React.Component<any, any> implements ModalContextIn
         return new Promise( (res, rej) => {
             this.setState((ps, ctx) => {
                 if (ps.modalStack.length > 0) {
-                    let [oldModalDiv, completeFn] = ps.modalStack[ps.modalStack.length-1];
+                    const [oldModalDiv, completeFn] = ps.modalStack[ps.modalStack.length-1];
                     completeFn(completionValue);
                     return {...ps, modalStack: ps.modalStack.slice(0, ps.modalStack.length - 1)};
                 }
@@ -135,11 +135,11 @@ class ModalStackView extends React.Component<any, any> implements ModalContextIn
 
     swapModal(d: any, completionValue?: any):Promise<any> {
         return new Promise((res, rej) => {
-            let newModal: ModalStackItem = [d, res];
+            const newModal: ModalStackItem = [d, res];
 
             this.setState((ps, ctx) => {
                 if (ps.modalStack.length > 0) {
-                    let [oldModalDiv, completeFn] = ps.modalStack[ps.modalStack.length-1];
+                    const [oldModalDiv, completeFn] = ps.modalStack[ps.modalStack.length-1];
                     completeFn(completionValue);
                     return {...ps, modalStack: ps.modalStack.slice(0, ps.modalStack.length - 1).concat([newModal])};
                 }
@@ -162,7 +162,7 @@ class ModalStackView extends React.Component<any, any> implements ModalContextIn
             completeFn(completionValue);
         });
         return new Promise( (res, rej) => {
-            let item:ModalStackItem = [d, res];
+            const item:ModalStackItem = [d, res];
             this.setState((ps, ctx) => {
                 return {...ps, modalStack: ps.modalStack.concat([item])};
             });
@@ -177,7 +177,7 @@ class ModalStackView extends React.Component<any, any> implements ModalContextIn
         let item = <></>;
 
         if (this.state.modalStack.length > 0) {
-            let [component, _fn] = this.state.modalStack[this.state.modalStack.length-1];
+            const [component, _fn] = this.state.modalStack[this.state.modalStack.length-1];
             item = component;
         }
 
@@ -202,8 +202,8 @@ class ModalStackView extends React.Component<any, any> implements ModalContextIn
 }
 
 export const ModalController = (props) => {
-    let msvRef = React.useRef<any>();
-    let [methods, setMethods] = React.useState<any>();
+    const msvRef = React.useRef<any>();
+    const [methods, setMethods] = React.useState<any>();
 
     React.useEffect( () => {
         setMethods(msvRef.current);

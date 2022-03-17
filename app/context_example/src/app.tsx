@@ -4,7 +4,7 @@ import * as ReactDOM from "react-dom";
 import {WhoAmIContext, WhoAmIValue} from "./ctx";
 
 export const App = (props, context) => {
-    let [who, setWho]: [WhoAmIValue, any] = React.useState(
+    const [who, setWho]: [WhoAmIValue, any] = React.useState(
         { is_loaded: false }
     );
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-let HelloWorld = (props, context) => {
+const HelloWorld = (props, context) => {
     return (
 	<div className='flex flex-col justify-center items-center h-full w-full'>
             Hello World!

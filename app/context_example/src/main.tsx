@@ -5,8 +5,8 @@ import {App} from "./app";
 
 import {WhoAmIContext, WhoAmIValue} from "./ctx";
 
-let HelloWorld = (props, context) => {
-    let whoami: WhoAmIValue = React.useContext(WhoAmIContext);
+const HelloWorld = (props, context) => {
+    const whoami: WhoAmIValue = React.useContext(WhoAmIContext);
     
     return (
 	<div className='flex flex-col justify-center items-center h-full w-full bg-green-100'>

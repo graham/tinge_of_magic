@@ -1,4 +1,5 @@
 node_modules/*
 app/static/compiled/*.js
-app/static/css/main.css
+app/static/css/tailwind_generated.css
+app/**/*/index.html
 package-lock.json
