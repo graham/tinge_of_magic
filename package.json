@@ -14,7 +14,8 @@
         "css:prod": "tailwindcss -i ./tailwind/tailwind.css -c ./tailwind/tailwind.production.js --postcss=./tailwind/postcss.config.js -o app/static/css/tailwind_generated.css",
         "pages:genhtml": "node ./lib/bin_gen_html.js --key=`git rev-parse HEAD`",
         "pages:startpage": "node ./lib/bin_create_new_page.js",
-        "pages:doctor": "node ./lib/bin_doctor.js"
+        "pages:doctor": "node ./lib/bin_doctor.js",
+        "endtoend": "rm -rf node_modules/; npm install; npm run clean; npm run css:prod; npm run pages:genhtml; npm run build"
     },
     "keywords": [],
     "author": "Graham Abbott",
