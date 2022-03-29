@@ -5,24 +5,22 @@
     "scripts": {
         "init": "npm run clean ; npm run css:dev ; npm run pages:genhtml",
         "clean": "rm -rf app/static/compiled/* ",
-        "build": "npm run clean ; npm run css:prod ; webpack build -c webpack.prod.js --progress --color",
+        "build": "npm run clean ; npm run css:release ; webpack build -c webpack.release.js --progress --color",
         "webserve": "webpack serve -c webpack.dev.js  --progress --color",
         "serve": "concurrently --raw \"npm run css:watch\" \"npm run webserve\"",
-        "host": "webpack serve -c webpack.prod.js --mode production",
+        "host": "webpack serve -c webpack.release.js --mode production",
         "lint": "eslint app --fix --quiet",
         "css:watch": "tailwindcss -i ./tailwind/tailwind.css -c ./tailwind/tailwind.config.js --postcss=./tailwind/postcss.config.js -o app/static/css/tailwind_generated.css --watch",
-        "css:prod": "tailwindcss -i ./tailwind/tailwind.css -c ./tailwind/tailwind.production.js --postcss=./tailwind/postcss.config.js -o app/static/css/tailwind_generated.css",
+        "css:release": "tailwindcss -i ./tailwind/tailwind.css -c ./tailwind/tailwind.production.js --postcss=./tailwind/postcss.config.js -o app/static/css/tailwind_generated.css",
         "pages:genhtml": "node ./lib/bin_gen_html.js --key=`git rev-parse HEAD`",
         "pages:startpage": "node ./lib/bin_create_new_page.js",
         "pages:doctor": "node ./lib/bin_doctor.js",
-        "endtoend": "rm -rf node_modules/; npm install; npm run clean; npm run css:prod; npm run pages:genhtml; npm run build"
+        "endtoend": "rm -rf node_modules/; npm install; npm run clean; npm run css:release; npm run pages:genhtml; npm run build"
     },
     "keywords": [],
     "author": "Graham Abbott",
     "license": "None",
     "devDependencies": {
-        "@types/react": "^17.0.24",
-        "@types/react-dom": "^17.0.9",
         "@typescript-eslint/eslint-plugin": "^5.15.0",
         "@typescript-eslint/parser": "^5.15.0",
         "@wasm-tool/wasm-pack-plugin": "^1.6.0",
@@ -52,7 +50,9 @@
         "yargs": "^17.3.1"
     },
     "dependencies": {
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "@types/react": "^17.0.24",
+        "@types/react-dom": "^17.0.9"
     }
 }

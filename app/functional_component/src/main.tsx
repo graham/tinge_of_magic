@@ -9,6 +9,7 @@ const HelloWorld = (props, context) => {
     );
 }
 
-ReactDOM.render(<HelloWorld />,
-		document.getElementById('content'));
-
+import * as ReactDOMClient from 'react-dom/client';
+let container = document.getElementById('content');
+const root = ReactDOMClient.createRoot(container);
+root.render(<HelloWorld />);
