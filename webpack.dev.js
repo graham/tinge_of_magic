@@ -2,8 +2,9 @@ const BACKEND_ADDRESS = "http://127.0.0.1:8000";
 const WEBSOCKET_ADDRESS = "http://127.0.0.1:15000";
 
 const path = require("path");
-
 let common = require("./lib/webpack.common.js");
+
+let public_prefix = '';
 
 module.exports = (env, args) => {
     let d = common(env, args);
@@ -20,11 +21,12 @@ module.exports = (env, args) => {
 
         devMiddleware: {
             index: true,
-            publicPath: '/app/static/compiled',
+            publicPath: public_prefix  + '/app/static/compiled',
         },
 
         static: {
             directory: path.join(__dirname, "."),
+            publicPath: public_prefix,
             serveIndex: true,
             watch: true,
         },
@@ -32,6 +34,7 @@ module.exports = (env, args) => {
         headers: {
             "X-Content-Type-Options": "nosniff",
         },
+
         proxy: {
             "/auth/": {
                 target: BACKEND_ADDRESS,
