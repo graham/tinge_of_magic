@@ -1,9 +1,11 @@
 # tinge_of_magic
 Web app template with only a little magic.
 
+# where is this?
+If you found this file, you might find more here: github.com/graham/tinge_of_magic
+
 ## what is this?
 This is a bare bones webpack template that I use for my projects. Occasionally people ask me about my setup, so I put this together so that it's easier for me to start new projects and easier for others to learn my process. My process works for me, it might work for you, it likely will not work for most people.
-
 
 
 # About
